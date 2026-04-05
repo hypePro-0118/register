@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f5f1e8" />
+  <meta name="description" content="文学フリマ向けのオフライン寄り会計Webアプリ" />
+  <title>文学フリマ 会計アプリ</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="hero-panel panel">
+      <div>
+        <p class="eyebrow">文学フリマ現地用</p>
+        <h1>文学フリマ 会計アプリ</h1>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-card">
+          <span class="stat-label">登録冊数</span>
+          <strong id="book-count">0</strong>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">本日の売上</span>
+          <strong id="sales-total">0円</strong>
+        </div>
+        <div class="stat-card accent">
+          <span class="stat-label">販売件数</span>
+          <strong id="sale-count">0</strong>
+        </div>
+      </div>
+    </header>
+
+    <section class="workspace">
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">在庫管理</p>
+            <h2>本の登録</h2>
+          </div>
+        </div>
+
+        <form id="book-form" class="book-form">
+          <label>
+            <span>本の名前</span>
+            <input id="book-name" type="text" maxlength="60" placeholder="例: 蒲生太郎の大冒険" required />
+          </label>
+          <label>
+            <span>価格</span>
+            <input id="book-price" type="number" min="0" step="1" placeholder="500" required />
+          </label>
+          <label>
+            <span>在庫</span>
+            <input id="book-stock" type="number" min="0" step="1" placeholder="20" required />
+          </label>
+          <button class="primary-button" type="submit">登録</button>
+        </form>
+
+        <div class="table-wrap">
+          <table class="inventory-table">
+            <thead>
+              <tr>
+                <th>本</th>
+                <th>価格</th>
+                <th>在庫</th>
+                <th>販売数</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody id="inventory-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">レジ操作</p>
+            <h2>会計</h2>
+          </div>
+          <button id="reset-quantities" class="ghost-button" type="button">購入数リセット</button>
+        </div>
+
+        <div id="checkout-list" class="checkout-list"></div>
+
+        <div class="checkout-summary">
+          <div class="summary-row">
+            <span>合計</span>
+            <strong id="grand-total">0円</strong>
+          </div>
+          <label class="money-field">
+            <span>受取金額</span>
+            <input id="received-amount" type="number" min="0" step="1" placeholder="1000" />
+          </label>
+          <div class="summary-row change-row">
+            <span>おつり</span>
+            <strong id="change-amount">0円</strong>
+          </div>
+          <p id="checkout-note" class="checkout-note">本を選ぶと合計が自動で計算されます。</p>
+          <button id="complete-sale" class="primary-button wide" type="button">販売を確定</button>
+        </div>
+      </section>
+    </section>
+
+    <section class="workspace lower-grid">
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">販売記録</p>
+            <h2>販売履歴</h2>
+          </div>
+          <div class="head-actions">
+            <button id="export-csv" class="ghost-button" type="button">CSV出力</button>
+            <button id="clear-history" class="ghost-button danger" type="button">履歴削除</button>
+          </div>
+        </div>
+        <div id="history-list" class="history-list"></div>
+      </section>
+
+      <section class="panel map-panel">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">会場確認</p>
+            <h2>会場図</h2>
+          </div>
+        </div>
+        <div class="map-stack">
+          <div class="map-frame">
+            <iframe
+              class="map-viewer"
+              src="assets/maps/for_visitor_tokyo42_map_z.pdf"
+              title="文学フリマ 会場図"
+            ></iframe>
+          </div>
+        </div>
+        <div class="map-links">
+          <a class="primary-button map-link" href="assets/maps/for_visitor_tokyo42_map_z.pdf" target="_blank" rel="noopener noreferrer">会場図を開く</a>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <template id="empty-template">
+    <div class="empty-state">まだデータがありません。</div>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
