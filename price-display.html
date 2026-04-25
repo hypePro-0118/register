@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#141414" />
+  <meta name="description" content="文学フリマ向けの会計表示画面" />
+  <title>会計表示 | 文学フリマ 会計アプリ</title>
+  <link rel="stylesheet" href="price-display.css" />
+</head>
+<body>
+  <main class="display-shell">
+    <header class="display-header">
+      <div>
+        <p class="eyebrow">Price Display</p>
+        <h1>会計表示</h1>
+        <p class="header-copy">登録済みの本をタップすると、販売価格を大きく表示できます。</p>
+      </div>
+      <a class="back-link" href="index.html">会計アプリに戻る</a>
+    </header>
+
+    <section class="display-layout">
+      <section class="selector-panel">
+        <div class="panel-head">
+          <div>
+            <p class="section-kicker">Book List</p>
+            <h2>書籍一覧</h2>
+          </div>
+          <p id="book-count-label" class="count-chip">0冊</p>
+        </div>
+        <div id="book-button-list" class="book-button-list"></div>
+      </section>
+
+      <section class="price-panel">
+        <p class="price-label">選択中の書籍</p>
+        <h2 id="selected-title" class="selected-title">未選択</h2>
+        <div class="price-box">
+          <span id="selected-price" class="selected-price">0円</span>
+        </div>
+        <p id="price-note" class="price-note">左の一覧から表示したい書籍を選んでください。</p>
+      </section>
+    </section>
+  </main>
+
+  <template id="empty-books-template">
+    <div class="empty-state">
+      まだ書籍が登録されていません。先に会計アプリで本の名前と価格を登録してください。
+    </div>
+  </template>
+
+  <script src="price-display.js"></script>
+</body>
+</html>

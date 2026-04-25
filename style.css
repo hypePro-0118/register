@@ -213,6 +213,10 @@ input:focus {
   color: var(--danger);
 }
 
+.nav-button {
+  text-decoration: none;
+}
+
 .table-wrap {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
