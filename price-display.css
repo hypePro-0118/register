@@ -182,9 +182,26 @@ h1 {
   padding: 26px;
 }
 
+.price-panel-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
 .price-label {
   color: var(--muted);
   font-size: 1rem;
+}
+
+.list-back-button {
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  cursor: pointer;
 }
 
 .selected-title {
@@ -221,6 +238,38 @@ h1 {
   line-height: 1.8;
 }
 
+.display-shell.focus-mode .display-header {
+  margin-bottom: 12px;
+}
+
+.display-shell.focus-mode .header-copy,
+.display-shell.focus-mode .back-link,
+.display-shell.focus-mode .selector-panel {
+  display: none;
+}
+
+.display-shell.focus-mode .display-layout {
+  grid-template-columns: 1fr;
+}
+
+.display-shell.focus-mode .price-panel {
+  min-height: calc(100vh - 120px);
+  padding: 28px;
+}
+
+.display-shell.focus-mode .selected-title {
+  font-size: clamp(2.4rem, 4vw, 4rem);
+}
+
+.display-shell.focus-mode .price-box {
+  min-height: 58vh;
+  margin-top: 24px;
+}
+
+.display-shell.focus-mode .selected-price {
+  font-size: clamp(6rem, 18vw, 12rem);
+}
+
 .empty-state {
   padding: 24px;
   border: 1px dashed var(--line);
@@ -244,6 +293,14 @@ h1 {
 
   .price-box {
     min-height: 34vh;
+  }
+
+  .display-shell.focus-mode .price-panel {
+    min-height: calc(100vh - 110px);
+  }
+
+  .display-shell.focus-mode .price-box {
+    min-height: 50vh;
   }
 }
 
@@ -289,5 +346,22 @@ h1 {
 
   .price-box {
     min-height: 30vh;
+  }
+
+  .price-panel-top {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .list-back-button {
+    width: 100%;
+  }
+
+  .display-shell.focus-mode .selected-title {
+    font-size: 1.9rem;
+  }
+
+  .display-shell.focus-mode .selected-price {
+    font-size: clamp(4.8rem, 20vw, 7rem);
   }
 }

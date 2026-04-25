@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="price-display.css" />
 </head>
 <body>
-  <main class="display-shell">
+  <main id="display-shell" class="display-shell">
     <header class="display-header">
       <div>
         <p class="eyebrow">Price Display</p>
@@ -32,7 +32,10 @@
       </section>
 
       <section class="price-panel">
-        <p class="price-label">選択中の書籍</p>
+        <div class="price-panel-top">
+          <p class="price-label">選択中の書籍</p>
+          <button id="back-to-list" class="list-back-button" type="button" hidden>書籍一覧に戻る</button>
+        </div>
         <h2 id="selected-title" class="selected-title">未選択</h2>
         <div class="price-box">
           <span id="selected-price" class="selected-price">0円</span>
